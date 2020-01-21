@@ -8,12 +8,12 @@ int main()
     int pos, turn=0, turnCheck=0, usedPos[9]= {0,0,0,0,0,0,0,0,0}, usedPosCounter=0;
 
 
-    /*  Initializing every index with white space
-        to get a blank board
+    /*  Initializing every index with underscore
+        to get a clean board
     */
     for(int i=0; i<3; ++i)
         for(int j=0; j<3; ++j)
-            ticTacToe[i][j]= ' ';
+            ticTacToe[i][j]= '_';
 
 newturn:
     while(turnCheck==turn)
