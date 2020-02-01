@@ -10,11 +10,27 @@ void showBoard(char board[3][3])
         printf("\t\t\t----+----+----\n");
     }
 }
+
+int checkWin(char board[3][3], char sign)
+{
+    for(int i=0; i<3; i++)
+    {
+        if(board[i][0]==sign && board[i][1]==sign && board[i][2]==sign)
+            return 1;
+        if(board[0][i]==sign && board[1][i]==sign && board[2][i]==sign)
+            return 1;
+        if(board[0][0]==sign && board[1][1]==sign && board[2][2]==sign)
+            return 1;
+        if(board[2][0]==sign && board[1][1]==sign && board[0][2]==sign)
+            return 1;
+    }
+    return 0;
+}
 int main()
 {
     char ticTacToe[3][3];
     char entry='*';
-    int pos, turn=0, turnCheck=0, usedPos[9]= {0,0,0,0,0,0,0,0,0}, usedPosCounter=0;
+    int pos, turn=0, usedPos[9]= {0,0,0,0,0,0,0,0,0}, usedPosCounter=0;
 
 
     /*  Initializing every index with whitespace
@@ -79,18 +95,17 @@ int main()
             printf("\nPlease enter proper location!");
             continue;
         }
-        if(turnCheck==turn)
-            continue;
-        else
-        {
             usedPos[usedPosCounter++]=pos;
-            turnCheck=turn;
             system("cls");
+            if(checkWin(ticTacToe,entry))
+            {
+                showBoard(ticTacToe);
+                printf("\n%c is Winner!!!",entry);
+                return 0;
+            }
             showBoard(ticTacToe);
-        }
 
     }
     showBoard(ticTacToe);
-
-
+    return 0;
 }
