@@ -1,6 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+void showBoard(char board[3][3])
+{
+    for(int i=0; i<3; ++i)
+    {
+        printf("\t\t\t  %c | %c  | %c  \n", board[i][0], board[i][1], board[i][2]);
+        printf("\t\t\t----+----+----\n");
+    }
+}
 int main()
 {
     char ticTacToe[3][3];
@@ -8,12 +16,12 @@ int main()
     int pos, turn=0, turnCheck=0, usedPos[9]= {0,0,0,0,0,0,0,0,0}, usedPosCounter=0;
 
 
-    /*  Initializing every index with underscore
+    /*  Initializing every index with white space
         to get a clean board
     */
     for(int i=0; i<3; ++i)
         for(int j=0; j<3; ++j)
-            ticTacToe[i][j]= '_';
+            ticTacToe[i][j]= ' ';
 
 newturn:
     while(turnCheck==turn)
@@ -79,18 +87,9 @@ newturn:
             usedPos[usedPosCounter++]=pos;
             turnCheck=turn;
             system("cls");
-            for(int i=0; i<3; ++i)
-            {
-                for(int j=0; j<3; ++j)
-                    printf("%c\t",ticTacToe[i][j]);
-                printf("\n");
-            }
+            showBoard(ticTacToe);
         }
 
     }
-    for(int i=0; i<3; ++i)
-        for(int j=0; j<3; ++j)
-            printf("%c",ticTacToe[i][j]);
-
-
+    showBoard(ticTacToe);
 }
