@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+
 void showBoard(char board[3][3])
 {
     for(int i=0; i<3; ++i)
@@ -16,15 +17,13 @@ int main()
     int pos, turn=0, turnCheck=0, usedPos[9]= {0,0,0,0,0,0,0,0,0}, usedPosCounter=0;
 
 
-    /*  Initializing every index with white space
+    /*  Initializing every index with whitespace
         to get a clean board
     */
     for(int i=0; i<3; ++i)
         for(int j=0; j<3; ++j)
             ticTacToe[i][j]= ' ';
-
-newturn:
-    while(turnCheck==turn)
+    while(1)
     {
         entry= (turn%2==0)?'O':'*';
         printf("Enter the position to play your turn: ");
@@ -34,7 +33,7 @@ newturn:
             if(pos==usedPos[i])
             {
                 printf("Location already taken, try again!\n");
-                goto newturn;
+                continue;
             }
         }
 
@@ -78,10 +77,10 @@ newturn:
             break;
         default:
             printf("\nPlease enter proper location!");
-            goto newturn;
+            continue;
         }
         if(turnCheck==turn)
-            goto newturn;
+            continue;
         else
         {
             usedPos[usedPosCounter++]=pos;
@@ -92,4 +91,6 @@ newturn:
 
     }
     showBoard(ticTacToe);
+
+
 }
