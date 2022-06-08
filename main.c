@@ -127,7 +127,7 @@ int main() {
             printf("\nPlease enter proper location!");
             continue;
         }
-        system("cls");
+        system("cls || clear");
         if (checkWin(ticTacToe, entry)) {
             showBoard(ticTacToe);
             printf("\n%c is Winner!!!", entry);
