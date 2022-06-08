@@ -24,7 +24,6 @@ int checkWin(char board[3][3], char sign) {
 }
 int main() {
     char ticTacToe[3][3];
-    char entry;
     int pos, turn = 0;
 
 
@@ -37,7 +36,7 @@ int main() {
     printf(". : : A simple two player Tic Tac Toe Game : : .\n");
     showBoard(ticTacToe);
     while (1) {
-        entry = (turn % 2 == 0) ? 'O' : 'X';
+        char entry = (turn % 2 == 0) ? 'O' : 'X';
         printf("Enter the position to play your turn (%c): ", entry);
         scanf("%d", &pos);
         switch (pos) {
