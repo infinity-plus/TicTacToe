@@ -24,7 +24,7 @@ int checkWin(char board[3][3], char sign) {
 }
 int main() {
     char ticTacToe[3][3];
-    char entry = 'X';
+    char entry;
     int pos, turn = 0;
 
 
